@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">exoplayer-androidplayer</string>
+    <string name="playername">Android Sample Player - ExoPlayer</string>
+    <string name="launcherBtn">Start Playback</string>
+    <string name="contentUrl">http://primetimecsin.adobedemo.com/media/content/vod_004/4sec/variant.m3u8</string>
+    <string name="ContentUrlLabel">Content Url</string>
+</resources>
