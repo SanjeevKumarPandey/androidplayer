@@ -45,6 +45,7 @@ import java.io.IOException;
 
 public class VideoPlayerActivity extends AbstractActivity implements ExoPlayer.EventListener {
 
+    private String LOGTAG = "VideoPlayerActivity";
     private SimpleExoPlayerView playerView;
     //private EditText contentUrl;
     private String mediaUrl;
@@ -173,6 +174,7 @@ public class VideoPlayerActivity extends AbstractActivity implements ExoPlayer.E
     @Override
     public void onPlayerError(ExoPlaybackException error) {
         String msg = "It seems that something's gone wrong.\nPlease try again.\nVideo Url:\n" + mediaUrl;
+        msg = msg + "\nError: \n"+error;
         alertDialog("Unable To Stream Video",msg);
     }
 

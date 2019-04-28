@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.sanjeev.exoplayer_androidplayer.ui.AbstractActivity;
 
 public class MainActivity extends AbstractActivity {
 
     private EditText contentUrl;
+    private String appversion;
+    private String libsUsed;
     public static final String EXTRA_MESSAGE = "com.example.sanjeev.exoplayer_androidplayer.MESSAGE";
 
     @Override
@@ -32,8 +35,15 @@ public class MainActivity extends AbstractActivity {
             contentUrl.setText(mediaContentUrl);
         }
         intent.putExtra(EXTRA_MESSAGE, contentUrl.getText().toString());
-        //alertDialog("media", contentUrl.getText().toString());
         startActivity(intent);
+    }
+
+    public void appinfo(View view){
+        appversion = getString(R.string.appVersion);
+        libsUsed = "ExoPlayer 2 (com.google.android.exoplayer:exoplayer:r2.2.0)";
+        String info = "Version: "+appversion+"\nLibs: "+libsUsed;
+
+        alertDialog("Umbrella Player", info);
     }
 
 }

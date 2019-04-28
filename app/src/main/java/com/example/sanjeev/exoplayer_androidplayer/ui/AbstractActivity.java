@@ -30,6 +30,6 @@ public class AbstractActivity extends Activity {
         //alert.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         alert.show();
-        alert.getWindow().setLayout(400, 600);
+        alert.getWindow().setLayout(500, 600);
     }
 }
