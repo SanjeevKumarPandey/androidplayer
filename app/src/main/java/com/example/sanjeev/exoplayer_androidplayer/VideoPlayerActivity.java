@@ -1,17 +1,19 @@
 package com.example.sanjeev.exoplayer_androidplayer;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.example.sanjeev.exoplayer_androidplayer.ui.AbstractActivity;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
@@ -41,7 +43,7 @@ import com.google.android.exoplayer2.util.Util;
 
 import java.io.IOException;
 
-public class VideoPlayerActivity extends AppCompatActivity implements ExoPlayer.EventListener {
+public class VideoPlayerActivity extends AbstractActivity implements ExoPlayer.EventListener {
 
     private SimpleExoPlayerView playerView;
     //private EditText contentUrl;
@@ -54,6 +56,10 @@ public class VideoPlayerActivity extends AppCompatActivity implements ExoPlayer.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
+
+        // Get the Intent that started player activity and extract the contentUrl
+        Intent intent = getIntent();
+        mediaUrl = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
         // 1. Create a default TrackSelector
         Handler mainHandler = new Handler();
@@ -81,7 +87,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements ExoPlayer.
         ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
 
         //contentUrl = (EditText) findViewById(R.id.contentUrlText);
-        mediaUrl = getResources().getString(R.string.contentUrl);//contentUrl.getText().toString();
+        //mediaUrl = getResources().getString(R.string.contentUrl);//contentUrl.getText().toString();
 
         // This is the MediaSource representing the media to be played.
         HlsMediaSource hlsMediaSource = new HlsMediaSource(Uri.parse(mediaUrl), dataSourceFactory, mainHandler, new AdaptiveMediaSourceEventListener() {
@@ -166,19 +172,8 @@ public class VideoPlayerActivity extends AppCompatActivity implements ExoPlayer.
 
     @Override
     public void onPlayerError(ExoPlaybackException error) {
-
-        AlertDialog.Builder adb = new AlertDialog.Builder(VideoPlayerActivity.this);
-        adb.setTitle("Unable To Stream Video");
-        adb.setMessage("It seems that something's gone wrong.\nPlease try again.\nVideo Url:\n" + getString(R.string.contentUrl));
-        adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-                finish(); // take out user from this activity. you can skip this
-            }
-        });
-        AlertDialog ad = adb.create();
-        ad.show();
+        String msg = "It seems that something's gone wrong.\nPlease try again.\nVideo Url:\n" + mediaUrl;
+        alertDialog("Unable To Stream Video",msg);
     }
 
     @Override
