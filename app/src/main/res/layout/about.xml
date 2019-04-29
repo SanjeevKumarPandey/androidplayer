@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AboutText">
+
+    <TextView
+        android:id="@+id/aboutUmbrellaPlayerVersion"
+        style="@style/AboutText"/>
+
+    <TextView
+        android:id="@+id/aboutAppDescription"
+        style="@style/AboutText" />
+
+    <TextView
+        android:id="@+id/aboutExoPlayer"
+        style="@style/AboutText" />
+
+    <TextView
+        android:id="@+id/aboutDeviceModel"
+        style="@style/AboutText" />
+
+    <TextView
+        android:id="@+id/aboutDeviceBrand"
+        style="@style/AboutText" />
+
+    <TextView
+        android:id="@+id/aboutDeviceProduct"
+        style="@style/AboutText" />
+
+    <TextView
+        android:id="@+id/aboutDeviceSoftware"
+        style="@style/AboutText" />
+
+    <TextView
+        android:id="@+id/aboutDeviceFingerprint"
+        style="@style/AboutText" />
+
+    <TextView
+        android:id="@+id/aboutDeviceProcessor"
+        style="@style/AboutText" />
+
+    <TextView
+        android:id="@+id/aboutDeviceResolution"
+        style="@style/AboutText" />
+
+</LinearLayout>

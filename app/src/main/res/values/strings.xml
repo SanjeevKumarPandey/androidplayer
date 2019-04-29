@@ -5,4 +5,15 @@
     <string name="launcherBtn">Start Playback</string>
     <string name="ContentUrlLabel">Content Url</string>
     <string name="contentUrl">http://primetimecsin.adobedemo.com/media/content/vod_004/4sec/variant.m3u8</string>
+    <string name="About">About Umbrella Player</string>
+    <string name="aboutUmbrellaPlayerVersion">Umbrella Player version: </string>
+    <string name="aboutApp_Description">Description: </string>
+    <string name="aboutExoPlayerDescription">ExoPlayer: </string>
+    <string name="aboutDeviceBrand">Brand: </string>
+    <string name="aboutDeviceModel">Model: </string>
+    <string name="aboutDeviceSoftware">OS: </string>
+    <string name="aboutDeviceProduct">Product: </string>
+    <string name="aboutDeviceFingerprint">Fingerprint: </string>
+    <string name="aboutDeviceProcessor">Processor: </string>
+    <string name="aboutDeviceResolution">Resolution: </string>
 </resources>

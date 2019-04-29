@@ -45,13 +45,14 @@ import java.io.IOException;
 
 public class VideoPlayerActivity extends AbstractActivity implements ExoPlayer.EventListener {
 
-    private String LOGTAG = "VideoPlayerActivity";
+    private static final String LOG_TAG = "[VideoPlayerActivity]";
     private SimpleExoPlayerView playerView;
     //private EditText contentUrl;
     private String mediaUrl;
     private SimpleExoPlayer player;
     private ProgressBar progressBar;
     private Button fullScreenBtn;
+    private Long bitrate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,15 +81,12 @@ public class VideoPlayerActivity extends AbstractActivity implements ExoPlayer.E
 
         // Measures bandwidth during playback. Can be null if not required.
         DefaultBandwidthMeter defaultBandwidthMeter = new DefaultBandwidthMeter();
+        bitrate = defaultBandwidthMeter.getBitrateEstimate();
         // Produces DataSource instances through which media data is loaded.
         DefaultHttpDataSource.Factory dataSourceFactory = new DefaultHttpDataSourceFactory(Util.getUserAgent(this, "Exo2"), defaultBandwidthMeter);
-        //this,
-        //        Util.getUserAgent(this, "Exo2"), defaultBandwidthMeter);
+
         // Produces Extractor instances for parsing the media data.
         ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
-
-        //contentUrl = (EditText) findViewById(R.id.contentUrlText);
-        //mediaUrl = getResources().getString(R.string.contentUrl);//contentUrl.getText().toString();
 
         // This is the MediaSource representing the media to be played.
         HlsMediaSource hlsMediaSource = new HlsMediaSource(Uri.parse(mediaUrl), dataSourceFactory, mainHandler, new AdaptiveMediaSourceEventListener() {
@@ -142,6 +140,7 @@ public class VideoPlayerActivity extends AbstractActivity implements ExoPlayer.E
 
     @Override
     public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
+
 
     }
 

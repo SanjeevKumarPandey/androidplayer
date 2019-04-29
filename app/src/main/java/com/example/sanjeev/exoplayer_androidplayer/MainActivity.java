@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.sanjeev.exoplayer_androidplayer.ui.AbstractActivity;
+import com.example.sanjeev.exoplayer_androidplayer.ui.InfoActivity;
 
 public class MainActivity extends AbstractActivity {
 
@@ -39,11 +40,7 @@ public class MainActivity extends AbstractActivity {
     }
 
     public void appinfo(View view){
-        appversion = getString(R.string.appVersion);
-        libsUsed = "ExoPlayer 2 (com.google.android.exoplayer:exoplayer:r2.2.0)";
-        String info = "Version: "+appversion+"\nLibs: "+libsUsed;
-
-        alertDialog("Umbrella Player", info);
+        InfoActivity.showAbout(this);
     }
 
 }
