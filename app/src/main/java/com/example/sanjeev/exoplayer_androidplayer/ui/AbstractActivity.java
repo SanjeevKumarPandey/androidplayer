@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.util.Log;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 public class AbstractActivity extends Activity {
@@ -28,8 +29,13 @@ public class AbstractActivity extends Activity {
 
         AlertDialog alert = builder.create();
         //alert.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
+        // Implement Wrap-able Dynamic View
+        WindowManager.LayoutParams lparam = new WindowManager.LayoutParams();
+        lparam.copyFrom(alert.getWindow().getAttributes());
+        lparam.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        lparam.height = WindowManager.LayoutParams.WRAP_CONTENT;
         alert.show();
-        alert.getWindow().setLayout(500, 600);
+        alert.getWindow().setAttributes(lparam);
+
     }
 }

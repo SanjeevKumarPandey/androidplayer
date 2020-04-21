@@ -2,9 +2,10 @@
     <string name="app_name">Umbrella Player</string>
     <string name="playername">Android Sample Player - ExoPlayer</string>
     <string name="appVersion">dev 0.1</string>
-    <string name="launcherBtn">Start Playback</string>
+    <string name="author">Sanjeev Pandey</string>
+    <string name="launcherBtn">Start Playback &gt;</string>
     <string name="ContentUrlLabel">Content Url</string>
-    <string name="contentUrl">http://primetimecsin.adobedemo.com/media/content/vod_004/4sec/variant.m3u8</string>
+    <string name="contentUrl">https://llseapac-mmd-01-cust.lldns.net/spandey/FeneoMovie/Movie1/stream.ismd/manifest.m3u8?stream=FeneoTest.mp4_360p</string>
     <string name="About">About Umbrella Player</string>
     <string name="aboutUmbrellaPlayerVersion">Umbrella Player version: </string>
     <string name="aboutApp_Description">Description: </string>
@@ -16,4 +17,5 @@
     <string name="aboutDeviceFingerprint">Fingerprint: </string>
     <string name="aboutDeviceProcessor">Processor: </string>
     <string name="aboutDeviceResolution">Resolution: </string>
+    <string name="catalogItemImageDescription">Catalog Item Image</string>
 </resources>

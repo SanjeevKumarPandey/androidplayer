@@ -47,11 +47,15 @@ public class InfoActivity {
 
         // Umbrella Player version
         TextView tv = (TextView) view.findViewById(R.id.aboutUmbrellaPlayerVersion);
-        tv.setText(parent.getString(R.string.aboutUmbrellaPlayerVersion) + " " + "Dev 0.1");
+        tv.setText(parent.getString(R.string.aboutUmbrellaPlayerVersion)+ " Dev 0.1");
 
         // Umbrella Player description
         tv = (TextView) view.findViewById(R.id.aboutAppDescription);
-        tv.setText(parent.getString(R.string.aboutApp_Description) + " " + "HLS Player");
+        tv.setText(parent.getString(R.string.aboutApp_Description) + " Android HLS Player");
+
+        // Developer Info
+        tv = (TextView) view.findViewById(R.id.aboutDeveloper);
+        tv.setText("Developed By: "+parent.getString(R.string.author));
 
         // ExoPlayer version
         tv = (TextView) view.findViewById(R.id.aboutExoPlayer);

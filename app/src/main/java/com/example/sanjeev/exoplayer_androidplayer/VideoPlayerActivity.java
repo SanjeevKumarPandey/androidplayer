@@ -53,6 +53,7 @@ public class VideoPlayerActivity extends AbstractActivity implements ExoPlayer.E
     private ProgressBar progressBar;
     private Button fullScreenBtn;
     private Long bitrate;
+    boolean fullScreen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +131,7 @@ public class VideoPlayerActivity extends AbstractActivity implements ExoPlayer.E
         fullScreenBtn = (Button) findViewById(R.id.fullScreenButton);
 
         //attching eventlistener
-        fullScreenBtn.setOnClickListener(fullScreenExeperience);
+        fullScreenBtn.setOnClickListener(fullScreenExperience);
     }
 
     @Override
@@ -197,21 +198,23 @@ public class VideoPlayerActivity extends AbstractActivity implements ExoPlayer.E
     }
 
     @SuppressLint("InlinedApi")
-    public final View.OnClickListener fullScreenExeperience = new View.OnClickListener() {
+    public final View.OnClickListener fullScreenExperience = new View.OnClickListener() {
         public void onClick(View view) {
-            boolean fullScreen = false;
             if (fullScreen) {
-                playerView.setSystemUiVisibility(View.SYSTEM_UI_LAYOUT_FLAGS
-                        | View.SYSTEM_UI_FLAG_VISIBLE
-                        | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+                playerView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
                 fullScreen = false;
             } else {
-                playerView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                playerView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE
+                        // Set the content to appear under the system bars so that the
+                        // content doesn't resize when the system bars hide and show.
                         | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        // Hide the nav bar and status bar
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
                 fullScreen = true;
             }
         }
